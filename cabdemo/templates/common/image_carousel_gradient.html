@@ -6,15 +6,18 @@
 
 <!--/div-->
 <div id="imageCarousel-{{id}}" class="margin-top-bottom-30">
-<div >
+<div style="position:relative;">
   {% for img in images %}
     <div id="slide-{{id}}-{{forloop.counter}}" class="hide">
-      <img class="d-block w-100"  src ="{{img.image.url}}" alt="{{img.alt}}">
+      <img class="d-block carousel-image"  src ="{{img.image.url}}" alt="{{img.alt}}">
     </div>
   {% endfor %}
+  <div class="{% if images|length == 0 %}hide {% else %}show{% endif %}">
+  <button id="prev" class="carousel-button left"><i style="font-size:24px; color:#fff; font-weight:bold;" class="fa fa-angle-left"></i></button>
+  <button id="next" class="carousel-button right"><i style="font-size:24px; color:#fff; font-weight:bold;" class="fa fa-angle-right"></i></button>
+
+  </div>
 </div>
-<button id="prev" class="carousel-button left"><i style="font-size:24px; color:#fff; font-weight:bold;" class="fa fa-angle-left"></i></button>
-<button id="next" class="carousel-button right"><i style="font-size:24px; color:#fff; font-weight:bold;" class="fa fa-angle-right"></i></button>
 </div>
 
 <!--button id="p" style="width:80px">previous</button-->

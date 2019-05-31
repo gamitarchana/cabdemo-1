@@ -6,24 +6,30 @@
     var placeFilter = {};
     var tripTypeFilter = {};
     var isSelectedAll = false;
+    var init = true;
 
     var populateRoute = function(){
       fetch(route.dataAPI()+route.routeId()+'/').
       then(response => response.json()).
       then(data => {  outstationTaxiRoute = data;
-      console.log(data)})
+      //console.log(data)
+    })
     }
 
     var routeMap = function(){
       $("#routeMapButton").click(function(e){
-        $("#selectAllButton").addClass("hide");
-        $("#editButton").removeClass("hide");
-        //$("#placeFilter").addClass("disabled");
-        $("#filterView").addClass("hide");
-        showSelectedTagsView();
-        generateRoute();
-
-
+        //console.log("map btn");
+        if(init){
+          init = false;
+          $("#filterPanel").removeClass("hide");
+        }else{
+          $("#selectAllButton").addClass("hide");
+          $("#editButton").removeClass("hide");
+          $("#routeMapButton").addClass("hide");
+          $("#filterView").addClass("hide");
+          showSelectedTagsView();
+          generateRoute();
+        }
       })
     }
 
@@ -31,11 +37,11 @@
       $('#selectedFilterView').empty();
       $.each(placeFilter, function(tagKey, tagValue ) {
         $('#selectedFilterView').append("<div class='tag-selected'>"+tagValue+"</div>");
-        console.log("tags selected");
+        //console.log("tags selected");
       })
       $.each(tripTypeFilter, function(tripTypeKey, tripTypeValue ) {
         $('#selectedFilterView').append("<div class='tag-selected'>"+tripTypeValue+"</div>");
-        console.log("tags selected");
+        //console.log("tags selected");
       })
       $('#selectedFilterView').removeClass('hide');
     }
@@ -157,7 +163,7 @@
       $('#editButton').on('click', function(e){
         $("#selectAllButton").removeClass("hide");
         $("#editButton").addClass("hide");
-        //$("#placeFilter").removeClass("disabled");
+        $("#routeMapButton").removeClass("hide");
         $("#filterView").removeClass("hide");
         //enableFilterTags(false);
         $('#selectedFilterView').addClass('hide');
@@ -193,7 +199,7 @@
   }
 
   $("#like_button_form").submit(function(e){
-    console.log("route.routeId()" + route.routeId());
+    //console.log("route.routeId()" + route.routeId());
     e.preventDefault();
     $.ajax({
         type:'POST',
@@ -203,7 +209,7 @@
           csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
         },
         success:function(data){
-          console.log(data);
+          //console.log(data);
           $("#likes_count").html(data.likes_count);
           if(data.is_liked == true){
             $('#like_button').addClass('border-bottom');

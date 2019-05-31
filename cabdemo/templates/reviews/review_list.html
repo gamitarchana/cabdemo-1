@@ -11,7 +11,7 @@
           <div class="margin-top-bottom-10">
             {% include 'common/rating.html' with rating=review.rating range='5' %}
           </div>
-          <div>
+          <div class="block-container">
             <span>{{review.user_profile.user.first_name}} {{review.user_profile.user.last_name}}</span> |
             <span>{{ review.publish_date|timesince }} ago</span>
           </div>
@@ -34,7 +34,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a-->
-      <div class="padding-top-bottom-30 margin-bottom-30">
+      <div class="block-container">
       <div class="bold-18">{{review.title}}</div>
       <div class="padding-top-10">{{review.review_comments}}</div>
     </div>
@@ -42,6 +42,7 @@
   </div>
   {% endfor %}
 </div>
+  <div class="{% if reviews|length == 0 %}hide {% else %}show{% endif %}">
   <a class="carousel-control-prev carousel-control" href="#reviewCarousel-{{review.id}}" role="button" data-slide="prev">
     <span><i style="font-size:24px; color:#000; font-weight:bold;" class="fa fa-angle-left"></i></span>
     <span class="sr-only" style="backgrond-color:#000">Previous</span>
@@ -50,6 +51,7 @@
     <span><i style="font-size:24px; color:#000; font-weight:bold;" class="fa fa-angle-right"></i></span>
     <span class="sr-only">Next</span>
   </a>
+  </div>
   </div>
 
 {% endblock %}

@@ -21,3 +21,7 @@ def item(l, i):
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
+
+@register.filter
+def mod(number, modBy):
+    return number % modBy

@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse
 
 def review_list(request, route_id):
     if (route_id and route_id.strip and Review.objects.all().filter(route_id=route_id).exists()):
-        reviews = Review.objects.all().filter(route_id=route_id)
+        reviews = Review.objects.all().filter(route_id=route_id).order_by('-publish_date')
         return render(request, 'reviews/review_list.html', {'reviews': reviews})
     return render(request, 'reviews/review_list.html',{'reviews':''})
 

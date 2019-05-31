@@ -7,7 +7,7 @@ body{
   color: #282460 !important;
   font-family: 'Open Sans', Arial, sans-serif !important;
   font-size: 18px;
-  background-color:#d7d7d7 !important;
+  background-color:#efefef !important;
 }
 
 h1,
@@ -25,6 +25,19 @@ ul {
   padding: 0px !important;
   margin: 0px !important;
 }
+.main-body{
+  width:fit-content;
+  display:flex;
+  flex-direction:column;
+  margin: 0px auto;
+}
+.form-body{
+  width:320px;
+  margin: 0px auto;
+}
+.booking-form-container {
+  position: relative;
+}
 .outstation-route-container{
   width: auto;
   margin: 0px auto;
@@ -35,6 +48,9 @@ button:focus{
 }
 table td{
   width: 50%;
+}
+table tr td:nth-child(1){
+  padding-left:10px;
 }
 .upper{
   text-transform: uppercase;
@@ -119,31 +135,128 @@ table td{
 .yellow{
   color: #fad034;
 }
-.navbar{
+.navigationbar{
   width:100%;
   background-color: #1a1543;
   overflow: hidden;
 }
-.navbar a:not(:first-child){
+.navigationbar #menu-container a:not(:first-child){
   float: right;
-  color: white;
+  /*color: #bbb7b7;*/
   text-align: center;
-  padding: 12px;
-  font-size: 20px;
+  /*padding: 12px;*/
   line-height: 25px;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   font-weight: bold;
 }
-.navbar .menu-icon{
+#menu-container{
+  max-width:1030px;
+  margin: 30px auto;
+  padding: 0px 20px;
+}
+.navigationbar #menu-container .menu-icon{
   display:none;
   color:white;
 }
-.navbar a{
+.navigationbar #menu-container a{
   text-decoration:none;
+  /*margin:10px;*/
 }
-.navbar .logo{
-  width:100px;
+
+.navigationbar #menu-container .logo {
+    width: 150px;
+    /*margin-left: 20px;
+    margin-top: 7px;*/
 }
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu li {
+  float: right;
+}
+
+.menu li a {
+  display: block;
+  color: #bbb7b7;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menuitem a:hover:not(.active) {
+color: white;
+}
+a.menuitem:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.menuitem active {
+color: white;
+}
+
+a.menuitem {
+    display: block;
+    color: #bbb7b7;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+a.upper.login-button:hover {
+    text-decoration: none;
+}
+
+
+a.upper.login-button {
+
+    /*border: none;
+    /*margin:10px;
+    background-color: #facf34;
+    padding: 20px 0px;
+    font-size: 15px;
+    color: #191443;
+    padding: 5px 15px;
+    border-radius: 30px;
+        width: 75px;*/
+    background-color: #facf34;
+    width: 85px;
+    color: black;
+    margin-left: 16px;
+    margin-top: 5px;
+    border-radius: 15px;
+    padding: 3px 15px;
+    text-align: center;
+    height: 30px;
+}
+.right-form-container img {
+width: 100%;
+    max-width: 390px;
+}
+
+   .mapshare-button {
+    border: none;
+    background-color: #282460;
+    padding: 10px 0px;
+    font-size: 15px;
+    color: white;
+    /* padding: 5px 25px; */
+    border-radius: 30px;
+    width: 100%;
+}
+
+
+
+.fa-share-alt:before {
+    content: "\f1e0";
+    padding: 5px;
+}
+
 footer{
   width:100%;
   background-color: #1a1543;
@@ -168,14 +281,24 @@ footer #pageLinks ul li:last-child:after{
 	content:'';
 }
 
+footer #pageLinks ul li a:hover{
+	text-decoration: none;
+  color:#d7d7d7;
+  cursor:pointer;
+
+}
+
 footer #pageLinks {
   margin: 0 auto;
     width: 500px;
 }
 
 footer #socialMedia{
-  width: 100px;
+  width: 90px;
     margin: 0 auto;
+}
+footer #socialMedia i{
+  margin: 0px 5px;
 }
 footer #copyright{
   font-size: 14px;
@@ -188,7 +311,7 @@ footer #copyright{
   display:block;
 }
 .booking-form-container{
-  width:500px;
+  width:320px;
   margin:0 auto;
 }
 
@@ -209,8 +332,11 @@ footer #copyright{
   width:300px;/*500px;*/
   margin: 0px auto;
 }
+#selectedFilterView{
+  margin:0px 10px 20px;
+}
 .block-container{
-  padding:10px;
+  padding:20px;
 }
 
 /** Location Page **/
@@ -218,12 +344,11 @@ footer #copyright{
   height:200px;
   position:relative;
 }
-.location-banner h2{
+.location-banner #bannerInfo{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  margin-left:30px;
-
+  padding: 0px 30px;
 }
 .tag-button-up{
   border: solid 2px #282460;
@@ -310,17 +435,17 @@ footer #copyright{
   padding-top:30px;
 }
 .show-route-button-container{
-  width:300px;
+  width:280px;
   margin:0px auto 20px auto;
 }
 .show-route-button{
   width:100%;
   background-color: #fff;
   color: #282460;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
-  padding: 10px 40px;
+  padding: 10px 30px;
   border-radius: 30px;
   border: 2px solid #282460;
 }
@@ -349,6 +474,10 @@ footer #copyright{
   background:none;
   font-size:18px;
 }*/
+#shareMapBtn{
+  width:60px;
+  margin:20px 30px 20px auto;
+}
 
 /** Map **/
 .route-map{
@@ -360,29 +489,34 @@ footer #copyright{
 }
 .map-info-right-container{
   position: absolute;
-  right: 0px;
+  right: 10px;
   top: 0px;
   width:100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .map-info-left-container{
   position: absolute;
-  left: 10px;
+  left: 30px;
   top: 0px;
   width:100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .map-info-left{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 60px;
+  align-items: flex-end;
 }
 .map-info-right{
   display: flex;
   flex-direction: column;
   /*align-items: center;
-  /*padding-right: 60px;*/
-  padding-left:20px;
+  /*padding-right: 60px;
+  padding-left:20px;*/
 }
 .map-right{
   margin-right: 10px;
@@ -396,7 +530,7 @@ footer #copyright{
   margin-right:auto;
 }
 .map-distance-container{
-  width:50px;
+  /*width:50px;*/
   text-align:center;
 }
 .map-distance{
@@ -404,9 +538,11 @@ footer #copyright{
     max-width: auto;
     border-radius: 15px;
     color: white;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
     box-sizing: border-box;
+    padding: 0px 10px;
+    width:min-content;
 }
 .map-block{
   width: 300px;
@@ -440,16 +576,16 @@ footer #copyright{
 }
 .map-label{
   color:#000;
-  font-size:14px;
+  font-size:10px;
   font-weight:bold;
   white-space: nowrap;
-  width: 80px;
+  width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .map-label-bold{
   color:#282460;;
-  font-size:22px;
+  font-size:16px;
   font-weight:bold;
 }
 .map-image{
@@ -458,14 +594,32 @@ footer #copyright{
   border-radius:45px;
   border: solid 2px #fff;
 }
-.map-icon-image{
-  height:90px;
+.map-icon-big{
+  height:100px;
+  width:150px;
+  object-fit:contain;
 }
 
-.map-icon-image img{
-  height:100%;
+.map-place-icon-right{
+  /*height:70px;*/
+  position: absolute;
+    right: 0px;
+    bottom: 0px;
 }
-
+.map-place-icon-left{
+  /*height:70px;*/
+  position: absolute;
+    left: 10px;
+    bottom: 0px;
+}
+.map-icon-small{
+  width:90px;
+  height:70px;
+  object-fit: contain;
+}
+#amenitiesContainer{
+  margin-top:0px;
+}
 
 .map-amenities-icon{
   font-size:18px !important;
@@ -502,7 +656,7 @@ footer #copyright{
 
 .fare-table{
   width: 95%;
-  margin: 10px auto;
+  margin: 30px auto;
 }
 .show-more-less{
   width:120px;
@@ -555,7 +709,7 @@ display: inline;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  height:300px;
+  height:250px;
 }
 
 /* The Close Button */
@@ -609,13 +763,18 @@ display: inline;
   font-size:24px !important;
 }
 .google-login {
-  padding: 10px;
+  padding: 10px 0px 10px 10px;
   background-color:#dd4b39;
-  color: # fff !important;
 }
 .google-btn{
-  color: white;
-font-family: 'open sans';
+  color: #fff !important;
+  font-family: 'open sans';
+  font-size: 18px;
+}
+.google-login a:hover{
+	text-decoration: none;
+  color:#d7d7d7;
+  cursor:pointer;
 }
 .review-content{
   width: auto;
@@ -628,11 +787,17 @@ font-family: 'open sans';
 .carousel-button{
   position:absolute;
   top:50%;
+  transform: translateY(-50%);
   background-color:rgba(0,0,0,0.6);
   border:none;
   width:30px;
   height:40px;
 
+}
+.carousel-image{
+  width:100%;
+  height:300px;
+  object-fit:cover;
 }
 .right{
   right:0;
@@ -643,7 +808,7 @@ font-family: 'open sans';
 .review-button-container{
   height: 40px;
   width: 300px;
-  margin : 0 auto;
+  margin : 50px auto;
 }
 .review-button{
     border: none;
@@ -661,16 +826,9 @@ font-family: 'open sans';
     width: 150px;
 }
 
-.review-form-label{
-  width:100px;
-  vertical-align:top;
-}
-.review-form-field{
-  width:350px;
-  border-radius:5px;
-  border: 1px solid #ccc;
-  padding: 0px 5px;
-}
+.review-form-label{ width:90px; vertical-align:top; }
+.review-form-field
+{ width:180px; border-radius:5px; border: 1px solid #ccc; padding: 0px 5px; }
 
 .review-form-upload-label{
   width:100px;
@@ -680,7 +838,6 @@ font-family: 'open sans';
 .file-dropzone{
     border-radius: 5px;
     border-image: none;
-    width: 500px;
     min-height:150px;
     height:auto;
     margin-left: auto;
@@ -776,23 +933,27 @@ font-family: 'open sans';
 }
 
 @media screen and (max-width: 600px) {
-  .navbar a:not(:first-child) {display: none;}
-  .navbar a.menu-icon {
-    float: right;
+  .navigationbar #menu-container a:not(:first-child) {display: none;}
+  .navigationbar #menu-container a.menu-icon {
+    /*float: right;*/
     display: block;
+    position: absolute;
+    right: 30px;
+    top: 35px;
   }
 }
 @media screen and (max-width: 600px) {
-  .navbar.menu-responsive {position: relative;}
-  .navbar.menu-responsive .menu-icon {
+  .navigationbar.menu-responsive {position: relative;}
+  .navigationbar.menu-responsive #menu-container .menu-icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 30px;
+    top: 35px;
   }
-  .navbar.menu-responsive a {
+  .navigationbar.menu-responsive #menu-container a {
     float:none;
     display: block;
     text-align: left;
+
   }
 
   footer #pageLinks {
@@ -833,29 +994,46 @@ font-family: 'open sans';
 
 @media only screen and (min-width: 768px) and (max-width:1199px) {
   /* For desktop: */
+  .main-body{
+    flex-direction:row-reverse;
+  }
+  /*.form-body{
+    width:320px;
+    /*margin-top: 10px;
+    margin-left: 10px;
+  }*/
+  .booking-form-container {
+    position: fixed;
+  }
+  .outstation-route-container{
+     width: calc(100% - 320px);
+  }
   #filterPanel{
-    padding:30px;
+    padding:0px; /*20px;*/
   }
   .filter-view{
-    width: 480px;
+    width: 430px;
+  }
+  #selectedFilterView{
+    margin:0px 20px 20px;
   }
   .block-container{
-    padding:30px;
+    padding:20px;
   }
   .route-map{
-    width:450px;
+    width:430px;
   }
   .map-block{
-    width: 450px;
-    height: 250px;
+    width: 430px;
+    height: 240px;
     position:relative;
   }
   .map-icon-image{
     height:140px;
   }
   .map-image{
-    width:150px;
-    height:150px;
+    width:120px;
+    height:120px;
     border-radius:75px;
   }
   .map-info-right-container{
@@ -867,8 +1045,34 @@ font-family: 'open sans';
     width: 140px;
   }
   .map-label{
-    /*font-size:16px;*/
+    font-size:12px;
     width: 140px;
+    margin:10px 0px;
+  }
+  .map-label-bold{
+    font-size:20px;
+  }
+  .map-distance-container{
+    margin:10px 0px;
+  }
+  .map-distance{
+      font-size: 14px;
+  }
+  .map-icon-small{
+    width:130px;
+    height:100px;
+    object-fit: contain;
+  }
+  .map-icon-big{
+    height:130px;
+    width:200px;
+  }
+  #shareMapBtn{
+    margin:20px 40px 20px auto;
+  }
+
+  #amenitiesContainer{
+    margin-top:20px;
   }
   .map-amenities-icon{
     font-size:20px !important;
@@ -882,12 +1086,40 @@ font-family: 'open sans';
     position: absolute;
     right: 130px;
   }
+  table tr td:nth-child(1){
+    padding-left:20px;
+  }
+  .google-login {
+    padding: 10px 10px 10px 30px;
+  }
+  .review-form-label{ width:100px;}
+  .review-form-field{ width:350px;}
 }
 
 @media only screen and (min-width: 1200px) {
   /* For desktop: */
+  .main-body{
+    flex-direction:row-reverse;
+    margin-bottom:50px;
+  }
+  .form-body{
+    margin-top:10px;
+    margin-left:10px;
+  }
+  #menu-container{
+    padding: 0px;
+  }
   .outstation-route-container{
-    width: 840px;
+    width: 700px;
+  }
+  #filterPanel{
+    padding:30px;
+  }
+  #selectedFilterView{
+    margin:0px 30px 20px;
+  }
+  .block-container{
+    padding:30px;
   }
   .filter-view{
     width: 500px;
@@ -903,7 +1135,7 @@ font-family: 'open sans';
   }
   .map-block{
     width: 600px; /*550px;*/
-    height: 330px; /*290px;*/
+    height: 290px; /*290px;*/
   }
   .review-content{
     width: 600px;
@@ -913,6 +1145,10 @@ font-family: 'open sans';
   }
   .map-right{
     margin-right: 30px;
+  }
+  .map-icon-big{
+    height:150px;
+    width:300px;
   }
   .map-image{
     width:140px;/*180px;*/
@@ -930,29 +1166,64 @@ font-family: 'open sans';
     left: 40px;
   }
   .map-label{
-    /*font-size:18px;*/
+    font-size:16px;
     width: 200px;
+    margin:10px 0px;
+  }
+  .map-label-bold{
+    font-size:22px;
+  }
+  .map-distance{
+      font-size: 16px;
+  }
+  .map-icon-small{
+    width:180px;
+    height:120px;
+    object-fit: contain;
+  }
+  #shareMapBtn{
+    margin:20px 100px 20px auto;
   }
   /*#mapInfo{
     display:flex;
     flex-direction:row-reverse;
     justify-content: space-between;
     padding-top:10px;
-  }
-  .map-distance-container{
-    margin:0px;
   }*/
-
+  .map-distance-container{
+    margin:10px 0px;
+  }
+/*.map-place-icon{
+  height:80px;
+}*/
   .map-amenities-icon{
     font-size:24px !important;
   }
 
   .map-amenities-left-container{
     position: absolute;
-    left: 140px;
+    left: 160px;
   }
   .map-amenities-right-container{
     position: absolute;
-    right: 160px;
+    right: 170px;
+  }
+  #amenitiesContainer{
+    margin-top:50px;
+  }
+  table tr td:nth-child(1){
+    padding-left: 30px;
+  }
+  .google-login {
+    padding: 10px 10px 10px 30px;
+  }
+  .booking-form-container {
+    position: fixed;
+  }
+  .review-form-label{
+    width:100px;
+  }
+  .review-form-field{
+    width:430px;
   }
 }
